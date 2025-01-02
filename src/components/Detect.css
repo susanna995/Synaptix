@@ -1,0 +1,192 @@
+/* .detect {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  input[type="file"] {
+    margin-top: 20px;
+  }
+  
+  .processing {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #ff6600;
+    font-weight: bold;
+  }
+  
+  img {
+    margin-top: 20px;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  p {
+    font-size: 16px;
+    color: #555;
+  }
+   */
+
+/* Overall container */
+.detect-container {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 70px); /* Ensure space for the navbar */
+    background: url('q9.jpg') no-repeat center center; /* Background image */
+    background-size: cover; /* Ensure the image covers the container */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center horizontally by default */
+    overflow: hidden; /* Prevent overflow */
+    padding-top: 60px; /* Space for the navbar */
+}
+
+/* Main box */
+.detect-box {
+    z-index: 1;
+    background-color: rgba(20, 20, 20, 0.95);
+    border: 2px solid #444;
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 1200px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 204, 0, 0.8); /* Glowing effect */
+    color: #fff;
+    overflow-y: auto; /* Enable scrolling for overflowing content */
+    max-height: calc(95vh - 150px); /* Prevent the card from exceeding viewport height */
+    transform: translateX(0%); /* Shift the box slightly to the left */
+}
+
+  
+  /* Highlighted heading */
+  .detect-box h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #ffcc00; /* Bright yellow for visibility */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Add text shadow */
+    margin-bottom: 20px;
+  }
+  
+  /* Upload section styling */
+  .upload-section {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Top section (Anomaly numbers) */
+  .dashboard-top {
+    background-color: rgba(40, 40, 40, 0.95);
+    border: 1px solid #444;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+    color: #ddd;
+  }
+  
+  .dashboard-top h2 {
+    font-size: 24px;
+    color: #ffcc00;
+  }
+  
+  .anomaly-list {
+    font-size: 20px; /* Larger font size for better readability */
+    color: #ffffff; /* Pure white for better visibility */
+    line-height: 1.5;
+    word-break: break-word; /* Prevent long numbers from overflowing */
+    max-height: 150px; /* Limit height */
+    overflow-y: auto; /* Add scrolling if needed */
+    padding: 10px;
+    background-color: rgba(30, 30, 30, 0.95);
+    border-radius: 5px;
+    border: 1px solid #555;
+  }
+  
+  /* Grid layout for charts */
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .dashboard-item {
+    background-color: rgba(40, 40, 40, 0.95);
+    border: 1px solid #444;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .dashboard-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .dashboard-item p {
+    color: #ddd;
+    font-size: 16px;
+  }
+  
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #007bff, #00ff88);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #0056b3, #00cc77);
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: rgba(40, 40, 40, 0.95);
+    border-radius: 4px;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .dashboard-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  

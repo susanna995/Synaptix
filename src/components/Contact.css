@@ -1,0 +1,72 @@
+.contact-page {
+    background: url('q9.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh; /* Ensure it takes the full viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    color: #fff; /* Optional: Adjust text color for visibility */
+}
+
+
+
+.contact-page h2 {
+    font-size: 32px;
+    color: #ffffff; /* White color for the header */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.contact-page p {
+    font-size: 18px;
+    color: #d1d1d1; /* Light gray for paragraph text */
+    margin-bottom: 30px;
+}
+
+.contact-page form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-page input,
+.contact-page textarea {
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #4CAF50; /* Light green border */
+    border-radius: 5px;
+    width: 100%;
+    background-color: #1A2C49; /* Darker blue background for input */
+    color: #ffffff; /* White text inside the input fields */
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.contact-page input:focus,
+.contact-page textarea:focus {
+    border-color: #66BB6A; /* Lighter green on focus */
+    background-color: #1A2C49;
+    outline: none;
+}
+
+.contact-page button {
+    padding: 15px;
+    background-color: #4CAF50; /* Bright green background for button */
+    color: #ffffff; /* White text for button */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-page button:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+    transform: translateY(-2px);
+}
+
+.contact-page button:active {
+    background-color: #388E3C; /* Darker green on active click */
+    transform: translateY(0);
+}

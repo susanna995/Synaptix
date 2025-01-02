@@ -1,0 +1,131 @@
+/* 
+.results {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.results button {
+    font-size: 24px;
+    padding: 15px 30px;
+    background-color: #1daaf6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.results button:hover {
+    background-color: #147cb5;
+}
+
+.results .chart-container {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.results .anomalies-list {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 16px;
+    color: #555;
+}
+
+.results .anomalies-list li {
+    list-style-type: none;
+    margin: 10px 0;
+}
+
+.results .anomalies-list li span {
+    font-weight: bold;
+    color: #d9534f;
+}
+ */
+ .results {
+    background-color: white;
+    border-radius: 10px;
+    padding: 40px 20px; /* Increased top padding to move content down */
+    margin: 50px auto; /* Added top margin to avoid overlap with navbar */
+    width: 80%;
+    height: auto;
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 90vh;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* Hide scrollbar but keep scrolling functionality */
+.results::-webkit-scrollbar,
+.details-container::-webkit-scrollbar {
+    display: none; /* Hides the scrollbar for Webkit-based browsers */
+}
+
+.results-container {
+    width: 100%;
+    text-align: center;
+}
+
+.chart-container {
+    width: 100%;
+    height: 60vh;
+    text-align: center;
+}
+
+.details-container {
+    margin-top: 20px;
+    width: 100%;
+    overflow-x: auto; /* Enable horizontal scrolling */
+}
+
+/* Hide scrollbar but keep scrolling functionality */
+.details-container::-webkit-scrollbar {
+    display: none; /* Hides the scrollbar for Webkit-based browsers */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    color: black; /* Set table text color to black */
+}
+
+thead th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: black; /* Ensure header text is also black */
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+h2, h3 {
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-top: 20px; /* Add spacing for heading alignment */
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+

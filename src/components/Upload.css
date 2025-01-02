@@ -1,0 +1,23 @@
+.upload-page {
+    background-image: url('q10.jpg'); /* Path to your image */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Full height of the viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Ensures components stack vertically */
+    color: white; /* Ensures text contrast */
+    padding: 20px; /* Prevents content from touching edges */
+    box-sizing: border-box;
+}
+
+.upload-page h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgb(10, 0, 0);
+}
+
+
+
+

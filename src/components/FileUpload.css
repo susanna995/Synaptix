@@ -1,0 +1,204 @@
+/* 
+FileUpload.css */
+/* .file-upload-container {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    margin-top: -500px;
+    margin-left: -170px;
+}
+
+.choose-file-button {
+    font-size: 24px; /* Set a large font size */
+    /* padding: 15px 30px; /* Add some padding to make the button larger */
+    /* background-color:#1daaf6; 
+    color: white;
+    border: none;
+    border-radius: 8px; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.choose-file-button:hover {
+    background-color: #56a5dd; 
+} */ 
+
+
+
+/* .upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(11, 9, 9, 0.3);
+    width: 50%;
+    background: rgba(239, 244, 248, 0.9);
+    color: #333;
+}
+
+/* .upload-container h2 {
+    margin-bottom: 20px;
+    font-size: 34px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #000000;
+}
+
+.file-input-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.file-input-wrapper label {
+    display: inline-block;
+    background-color: #4ecca3;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.file-input-wrapper label:hover {
+    background-color: #3da68e;
+    transform: scale(1.05);
+}
+
+.file-input-wrapper input[type="file"] {
+    display :contents;
+}
+
+.upload-btn {
+    background-color: #40514e;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-btn:hover {
+    background-color: #2f3e3d;
+    transform: translateY(-2px);
+}
+
+.upload-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(64, 81, 78, 0.5); 
+}
+
+
+body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}  */
+
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 300px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(11, 9, 9, 0.3);
+    width: 50%;
+    background: rgba(239, 244, 248, 0.9);
+    color: #333;
+}
+
+.file-name {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    word-break: break-word; /* Prevent long filenames from breaking the layout */
+}
+
+.upload-container h2 {
+    margin-bottom: 20px;
+    font-size: 34px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #000000;
+}
+
+.file-input-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Consistent spacing between buttons */
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    border-radius: 15px;
+}
+
+.file-input-wrapper label {
+    display: inline-block;
+    background-color: #3da68e;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.file-input-wrapper label:hover {
+    background-color: #3da68e;
+    transform: scale(1.05);
+}
+
+.file-input-wrapper input[type="file"] {
+    display: none;
+}
+
+.upload-btn {
+    background-color: #40514e;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.upload-btn:hover {
+    background-color: #2f3e3d;
+    transform: translateY(-2px);
+}
+
+.upload-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(64, 81, 78, 0.5);
+}
+
+@media (max-width: 768px) {
+    .upload-container {
+        width: 80%; /* Adjust width for smaller screens */
+    }
+
+    .file-input-wrapper {
+        flex-direction: column; /* Stack buttons vertically on smaller screens */
+        gap: 10px;
+    }
+}

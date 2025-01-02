@@ -1,0 +1,72 @@
+.navbar {
+    width: 100%;
+    padding: 25px 40px;  /* Slightly increased padding */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(2, 11, 29, 0.95); /* Dark blue with transparency */
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.7); /* Slightly increased shadow */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeIn 2s ease-out 0.5s forwards;
+    height: 70px;  /* Increased height for a bigger effect */
+}
+
+/* Logo Styling */
+.navbar .logo {
+    font-size: 28px;  /* Increased font size for logo */
+    color: #c4c7d1;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Navigation Links Styling */
+.navbar .nav-links {
+    display: flex;
+    gap: 25px;  /* Slightly increased gap between nav items */
+}
+
+.navbar .nav-links a {
+    text-decoration: none;
+    color: #c4c7d1; /* Light blue-gray */
+    font-size: 20px;  /* Increased font size for nav items */
+    font-weight: bold;
+    transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.navbar .nav-links a:hover {
+    color: #8b9bcc; /* Lighter blue-gray on hover */
+    text-shadow: 0 0 10px #8b9bcc;  /* Enhanced hover effect */
+    transform: translateY(-2px);  /* Subtle hover lift effect */
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;  /* Adjusted padding for mobile view */
+        height: auto;  /* Remove fixed height for mobile */
+    }
+    .nav-links {
+        flex-direction: column;
+        gap: 15px;  /* Increased gap for mobile view */
+        margin-top: 15px;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

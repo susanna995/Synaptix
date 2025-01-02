@@ -1,0 +1,101 @@
+/* Container Styling */
+.container {
+    background-image: url('q23.jpg'); /* Path to your image */
+    background-size: cover; /* Ensures the image covers the entire container */
+    background-position: center center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents tiling of the image */
+    height: 100vh; /* Makes the container cover the full viewport height */
+    width: 100%; /* Ensures the container covers the full width */
+    display: flex; /* Enables flexbox */
+    flex-direction: column; /* Stacks items vertically */
+    justify-content: flex-start; /* Aligns content at the top */
+    align-items: center; /* Centers content horizontally */
+    color: rgb(0, 0, 0); /* Optional: Adjust text color for visibility */
+    overflow-y: scroll; /* Ensures scrolling, without showing the scrollbar */
+    padding: 40px; /* Adds padding to prevent content from touching edges */
+    box-sizing: border-box; /* Includes padding in width and height calculations */
+    text-align: center; /* Centers text in the entire container */
+    position: relative; /* To position the overlay */
+}
+
+/* Hide Scrollbar in Webkit Browsers */
+.container::-webkit-scrollbar {
+    display: none; /* Hides the scrollbar */
+}
+
+/* Background Overlay */
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 35, 75, 0.6); /* Blue overlay */
+    z-index: -1; /* Ensure overlay is behind the content */
+}
+
+/* Section Box Styling */
+.section-box {
+    background-color: rgba(0, 35, 75, 0.8); /* Deep blue with transparency */
+    border-radius: 15px; /* Rounded corners for a smoother look */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* Stronger shadow for depth */
+    padding: 30px; /* Adds padding inside the box */
+    margin: 25px 0; /* Adds spacing between boxes */
+    width: 90%; /* Ensures the box is responsive */
+    max-width: 900px; /* Restricts the width of the box */
+    text-align: left; /* Align text to the left for readability */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+    font-family: 'Arial', sans-serif; /* Ensures consistent font */
+}
+
+/* About Us Heading */
+.about-heading {
+    color: white; /* Make the "About Us" heading white */
+    font-size: 36px; /* Adjust font size if needed */
+    margin-bottom: 40px; /* Add space below the heading */
+    font-weight: bold; /* Make the text bold */
+}
+
+/* Heading styles inside section boxes */
+.section-box h2 {
+    font-size: 32px; /* Larger font size for headings */
+    color: #edeff0; /* Lighter blue color for headings */
+    margin-bottom: 20px; /* Adds more space below headings */
+    font-weight: bold; /* Bold font for headings */
+}
+
+/* Heading styles inside section boxes */
+.section-box h3 {
+    color: white; /* Make the welcome text white */
+    font-size: 28px; /* Adjust the font size as needed */
+    margin-bottom: 20px; /* Adds space below the heading */
+}
+
+/* Paragraph styles inside section boxes */
+.section-box p {
+    font-size: 18px;
+    color: #A1C6EA; /* Soft, pastel blue color for text */
+    line-height: 1.7; /* Increases line height for better readability */
+    margin: 15px 0; /* Adds spacing between paragraphs */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px; /* Reduces padding for smaller screens */
+    }
+
+    .section-box {
+        padding: 20px; /* Adjust padding for smaller screens */
+        width: 100%; /* Ensure the box takes full width on mobile */
+    }
+
+    .section-box h2 {
+        font-size: 28px; /* Adjust heading font size on smaller screens */
+    }
+
+    .section-box p {
+        font-size: 16px; /* Adjust paragraph font size on smaller screens */
+    }
+}

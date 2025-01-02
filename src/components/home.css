@@ -1,0 +1,186 @@
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Georgia', serif;
+    overflow: hidden;
+    height: 100%;
+    background-color: #020b1d; /* Darkest navy blue */
+    color: #c4c7d1; /* Light blue-gray text */
+    box-sizing: border-box;
+    position: relative;
+    animation: backgroundAnimation 15s ease-in-out infinite; /* Background animation */
+}
+
+/* Home Container */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    position: relative;
+    background: radial-gradient(circle at top, #0d1a2b, #020b1d);
+    background-image: url('q17.jpg');
+    background-size: cover;  /* Dark blue gradient */
+    opacity: 0;
+    animation: fadeIn 2s ease-out forwards; /* Fade-in animation */
+}
+
+/* Background Animation */
+@keyframes backgroundAnimation {
+    0% {
+        background: linear-gradient(45deg, rgba(2, 11, 29, 0.8), rgba(3, 16, 47, 0.8));
+    }
+    50% {
+        background: linear-gradient(45deg, rgba(3, 16, 47, 0.8), rgba(2, 11, 29, 0.8));
+    }
+    100% {
+        background: linear-gradient(45deg, rgba(2, 11, 29, 0.8), rgba(3, 16, 47, 0.8));
+    }
+}
+
+/* Navigation Bar */
+.navbar {
+    width: 100%;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background: rgba(2, 11, 29, 0.95); /* Dark blue with transparency */
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    animation: fadeIn 2s ease-out 0.5s forwards; /* Delayed fade-in animation */
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    margin: 0 20px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #c4c7d1; /* Light blue-gray */
+    font-size: 20px;
+    font-weight: bold;
+    transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #8b9bcc; /* Lighter blue-gray on hover */
+    text-shadow: 0 0 8px #8b9bcc;
+    transform: translateY(-2px); /* Subtle hover lift effect */
+}
+
+/* Main Content */
+.content {
+    padding-top: 120px;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0;
+    animation: fadeIn 2s ease-out 1s forwards; /* Delayed fade-in animation */
+}
+
+.content h1 {
+    font-size: 46px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #ffffff; /* Bright white */
+    letter-spacing: 2px;
+    opacity: 0;
+    animation: slideIn 1s ease-out 1s forwards; /* Slide-in animation */
+}
+
+.content p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    color: #c4c7d1; /* Light blue-gray text */
+    opacity: 0;
+    animation: slideIn 1s ease-out 1.2s forwards; /* Slide-in animation */
+}
+
+/* Call to Action */
+.cta {
+    background: linear-gradient(145deg, #1e2d47, #10223b); /* Darker blue gradient */
+    padding: 25px 35px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8);
+    margin: 0 auto;
+    max-width: 600px;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 2s ease-out 1.5s forwards; /* Delayed fade-in animation */
+}
+
+.cta p {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-style: italic;
+}
+
+.cta button {
+    background-color: #6b7f9f; /* Soft dark blue */
+    color: #020b1d; /* Dark background */
+    font-size: 18px;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease, background-color 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 2s ease-out 1.8s forwards; /* Delayed fade-in animation */
+}
+
+.cta button:hover {
+    background-color: #c4c7d1; /* Lighter blue-gray */
+    color: #1e2d47;
+    transform: translateY(-4px);
+    opacity: 0.9; /* Slight transparency effect on hover */
+}
+
+.cta button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(140, 156, 204, 0.6);
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    .navbar ul li { margin: 0 10px; }
+    .content h1 { font-size: 38px; }
+    .content p { font-size: 16px; }
+    .cta { padding: 20px 25px; }
+    .cta button { font-size: 16px; padding: 12px 30px; }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
