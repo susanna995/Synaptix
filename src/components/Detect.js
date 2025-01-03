@@ -1,10 +1,7 @@
 
 // import React, { useState } from "react";
 // import axios from "axios";
-// import { Particles } from "react-tsparticles";
-// import { loadFull } from "tsparticles";
 // import "./Detect.css";
-
 
 // function Detect() {
 //   const [file, setFile] = useState(null);
@@ -13,10 +10,6 @@
 //   const [histogramPlot, setHistogramPlot] = useState(null);
 //   const [pieChart, setPieChart] = useState(null); // State for pie chart
 //   const [isProcessing, setIsProcessing] = useState(false);
-
-//   const particlesInit = async (main) => {
-//     await loadFull(main);
-//   };
 
 //   const handleFileChange = (e) => {
 //     setFile(e.target.files[0]);
@@ -50,21 +43,6 @@
 
 //   return (
 //     <div className="detect-container">
-//       <Particles
-//         id="tsparticles"
-//         init={particlesInit}
-//         options={{
-//           background: { color: { value: "#101010" } },
-//           fpsLimit: 60,
-//           particles: {
-//             number: { value: 50 },
-//             color: { value: "#ffffff" },
-//             links: { enable: true, color: "#ffffff", distance: 120 },
-//             move: { enable: true, speed: 1 },
-//             size: { value: 3 },
-//           },
-//         }}
-//       />
 //       <div className="detect-box">
 //         <h1>Detect Anomalies</h1>
 //         <div className="upload-section">
@@ -120,23 +98,35 @@
 // export default Detect;
 
 
-
 import React, { useState } from "react";
 import axios from "axios";
+import jsPDF from "jspdf";
 import "./Detect.css";
 
 function Detect() {
   const [file, setFile] = useState(null);
+  const [fileName, setFileName] = useState(""); // New state for file name
   const [anomalyIndices, setAnomalyIndices] = useState([]);
   const [anomalyPlot, setAnomalyPlot] = useState(null);
   const [histogramPlot, setHistogramPlot] = useState(null);
-  const [pieChart, setPieChart] = useState(null); // State for pie chart
+  const [pieChart, setPieChart] = useState(null);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [resultsReady, setResultsReady] = useState(false);
 
-  const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
+  // Handle file selection
+  const handleFileChange = (event) => {
+    const selectedFile = event.target.files[0];
+    if (selectedFile && selectedFile.name.endsWith(".csv")) {
+      setFile(selectedFile);
+      setFileName(selectedFile.name); // Set the file name
+    } else {
+      alert("Please upload a valid CSV file.");
+      setFile(null);
+      setFileName(""); // Reset file name
+    }
   };
 
+  // Handle file upload
   const handleUpload = async () => {
     if (!file) {
       alert("Please select a file first!");
@@ -151,10 +141,12 @@ function Detect() {
       const response = await axios.post("http://127.0.0.1:5000/upload", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
-      setAnomalyIndices(response.data.anomaly_indices);
-      setAnomalyPlot(response.data.anomaly_plot);
-      setHistogramPlot(response.data.histogram_plot);
-      setPieChart(response.data.pie_chart); // Set pie chart
+
+      setAnomalyIndices(response.data.anomaly_indices || []);
+      setAnomalyPlot(response.data.anomaly_plot || null);
+      setHistogramPlot(response.data.histogram_plot || null);
+      setPieChart(response.data.pie_chart || null);
+      setResultsReady(true); // Enable download button
     } catch (error) {
       alert("Error uploading file!");
       console.error(error);
@@ -163,16 +155,65 @@ function Detect() {
     }
   };
 
+  // Handle PDF download
+  const handleDownloadPDF = () => {
+    const pdf = new jsPDF();
+    pdf.setFont("helvetica", "bold");
+    pdf.setFontSize(16);
+    pdf.text("Anomaly Detection Results", 10, 10);
+
+    pdf.setFontSize(12);
+    pdf.setFont("helvetica", "normal");
+    pdf.text("Detected Anomalies:", 10, 20);
+
+    // Add anomaly indices
+    const anomalies = anomalyIndices.join(", ");
+    pdf.text(anomalies || "No anomalies detected.", 10, 30);
+
+    // Add Anomaly Plot
+    if (anomalyPlot) {
+      pdf.text("Anomaly Scores:", 10, 50);
+      pdf.addImage(`data:image/png;base64,${anomalyPlot}`, "PNG", 10, 60, 180, 60);
+    }
+
+    // Add Histogram Plot
+    if (histogramPlot) {
+      pdf.text("Score Histogram:", 10, 130);
+      pdf.addImage(`data:image/png;base64,${histogramPlot}`, "PNG", 10, 140, 180, 60);
+    }
+
+    // Add Pie Chart
+    if (pieChart) {
+      pdf.text("Anomaly vs Normal Data:", 10, 210);
+      pdf.addImage(`data:image/png;base64,${pieChart}`, "PNG", 10, 220, 180, 60);
+    }
+
+    pdf.save("anomaly_results.pdf");
+  };
+
   return (
     <div className="detect-container">
       <div className="detect-box">
         <h1>Detect Anomalies</h1>
         <div className="upload-section">
-          <input type="file" onChange={handleFileChange} />
-          <button onClick={handleUpload}>Upload</button>
+          <div className="file-input-wrapper">
+            <input
+              type="file"
+              id="file-upload"
+              onChange={handleFileChange}
+              accept=".csv"
+            />
+            <label htmlFor="file-upload">Choose File</label>
+          </div>
+          <div className="file-name">
+            {fileName ? `Selected File: ${fileName}` : "No file selected"}
+          </div>
+          <button onClick={handleUpload} disabled={isProcessing}>
+            {isProcessing ? "Processing..." : "Upload"}
+          </button>
         </div>
         {isProcessing && <p className="processing">Processing... Please wait.</p>}
-        {!isProcessing && (
+        {resultsReady && (
           <div className="dashboard">
             <div className="dashboard-top">
               <h2>Detected Anomalies</h2>
@@ -183,6 +224,13 @@ function Detect() {
                   <p>No anomalies detected yet.</p>
                 )}
               </div>
+              <button
+                onClick={handleDownloadPDF}
+                className="download-button"
+                disabled={!resultsReady}
+              >
+                Download PDF
+              </button>
             </div>
             <div className="dashboard-grid">
               <div className="dashboard-item">
