@@ -5,5 +5,5 @@ The model utilizes prior association and series association to better understand
 
 For anomaly scoring, the model computes a reconstruction loss based on the discrepancy between the prior association and the series association, measured using KL divergence. This discrepancy is used to calculate an anomaly score via a dot product, which effectively identifies anomalies by highlighting deviations from expected patterns.
 
-Based on the anomaly score, the model detects anomalies without the need for labeled data, making it a powerful tool for time series anomaly detection in various domains.Using the transformer here has been a great advantage and has been an easy and efficient manner to identify /detect the anomalies.
+Based on the anomaly score, the model detects anomalies without the need for labeled data, making it a powerful tool for time series anomaly detection in various domains.Using the transformer here has been a great advantage and has been an easy and efficient manner to identify and detect the anomalies.
 
